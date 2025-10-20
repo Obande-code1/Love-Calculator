@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Match Calculator ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    }
+
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container div {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    button {
+      background: white;
+      color: #ff6b6b;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #ff6b6b;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    footer {
+       color: white;
+       text-align: center;
+       padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1>💘 Love Match Calculator 💘</h1>
+      <p>Find out how compatible you and your crush are!</p>
+
+      <input type="text" id="maleName" placeholder="Enter your name" required>
+      <input type="text" id="femaleName" placeholder="Enter your crush's name" required>
+      <button onclick="calculateLove()">Calculate 💞</button>
+
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Obande Frontend Developer | All rights reserved.</p>
+  </footer>
+
+  <script>
+    function calculateLove() {
+      var maleName = document.getElementById("maleName").value.trim();
+      var femaleName = document.getElementById("femaleName").value.trim();
+      var result = document.getElementById("result");
+
+      if (maleName === "" || femaleName === "") {
+        alert("Please enter both names!");
+        return;
+      }
+
+      var percent = Math.floor(Math.random() * 100);
+      result.style.display = "block";
+      result.textContent = `Hey ${maleName}, you are a ${percent}% match with ${femaleName}! 💖`;
+
+      // Optional fun message
+      if (percent > 80) {
+        result.textContent += " You’re a perfect match! 💍";
+      } else if (percent > 50) {
+        result.textContent += " There’s definitely a spark! 🔥";
+      } else {
+        result.textContent += " Hmm... maybe just friends 😅";
+      }
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
